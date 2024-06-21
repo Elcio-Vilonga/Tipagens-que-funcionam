@@ -1,0 +1,70 @@
+name: Autograding Tests
+'on':
+- workflow_dispatch
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Desafio 1
+      id: desafio-1
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Desafio 1
+        setup-command: npm install
+        command: npm run desafio1
+        timeout: 5
+        max-score: 2
+    - name: Desafio 2
+      id: desafio-2
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Desafio 2
+        setup-command: npm install
+        command: npm run desafio2
+        timeout: 5
+        max-score: 2
+    - name: Desafio3
+      id: desafio3
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Desafio3
+        setup-command: npm install
+        command: npm ren desafio3
+        timeout: 5
+        max-score: 2
+    - name: Desafio4
+      id: desafio4
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Desafio4
+        setup-command: npm install
+        command: npm run desafio4
+        timeout: 5
+        max-score: 2
+    - name: Desafio5
+      id: desafio5
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Desafio5
+        setup-command: npm install
+        command: npm run desafio5
+        timeout: 5
+        max-score: 2
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        DESAFIO-1_RESULTS: "${{steps.desafio-1.outputs.result}}"
+        DESAFIO-2_RESULTS: "${{steps.desafio-2.outputs.result}}"
+        DESAFIO3_RESULTS: "${{steps.desafio3.outputs.result}}"
+        DESAFIO4_RESULTS: "${{steps.desafio4.outputs.result}}"
+        DESAFIO5_RESULTS: "${{steps.desafio5.outputs.result}}"
+      with:
+        runners: desafio-1,desafio-2,desafio3,desafio4,desafio5
