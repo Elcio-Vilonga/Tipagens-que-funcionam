@@ -1,20 +1,17 @@
 
-import {  Expect, ExpectExtends } from "./types/validateTypes";
+import { Expect, ExpectExtends } from "./types/validateTypes";
 
-// Seu código vai aqui : Modifique IFullUser para possuir os campos de IUserWorker e IUserStudant
-
-interface IFullUser {
+// Agora o IFullUser possue os campos de IUserWorker e IUserStudent
+interface IFullUser extends IUserWorker, IUserStudent {
 }
 
-
-// Validações :
-
+// Validações:
 type casosDeValidacao = [
-  Expect<ExpectExtends<IUserWorker, IFullUser>>, // Confere se IFullUser possui campos do Worker
-  Expect<ExpectExtends<IUserStudent, IFullUser>>, // Confere se IFullUser possui campos do Student
+  Expect<ExpectExtends<IUserWorker, IFullUser>>, // IFullUser possue os campos do Worker
+  Expect<ExpectExtends<IUserStudent, IFullUser>>, // IFullUser possue os campos do Student
 ]
 
-// Aqui estão os auxiliares e comparações:
+// Auxiliares e comparações:
 
 interface IUserWorker {
   name: string

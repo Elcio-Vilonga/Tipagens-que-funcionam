@@ -1,10 +1,9 @@
 
-import { Equal, Expect, ExpectExtends } from "./types/validateTypes";
+import { Equal, Expect } from "./types/validateTypes";
 
-// Seu código vai aqui :
 // Modifique a tipagem myFunction para que a função duplicarNumero se encaixe nela.
 
-type myFunction = () => void
+type myFunction = (value: number) => number
 
 // Validações :
 
