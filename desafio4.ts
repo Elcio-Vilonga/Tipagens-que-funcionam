@@ -1,10 +1,9 @@
 
 import { Equal, Expect, ExpectExtends } from "./types/validateTypes";
 
-// Seu código vai aqui :
 // Faça com que a tipagem listType , aplicada como array em list_of_packs, aceite valores numéricos e de texto
 
-type listType = boolean
+type listType = number | string
 
 // Validações :
 
