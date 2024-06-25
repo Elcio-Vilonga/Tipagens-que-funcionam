@@ -1,7 +1,7 @@
 
 import { Equal, Expect, ExpectExtends } from "./types/validateTypes";
 
-// O usuário userYouMade precisa ter seus atributos válidos, mexa apenas na tipagem abaixo :
+// O usuário userYouMade agora tem seus atributos válidos
 interface IUserYouMade {
     name: string;
     age:number;

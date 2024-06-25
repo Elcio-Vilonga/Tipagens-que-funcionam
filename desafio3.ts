@@ -1,7 +1,7 @@
 
 import { Equal, Expect } from "./types/validateTypes";
 
-// Modifique a tipagem myFunction para que a função duplicarNumero se encaixe nela.
+// Agora a função duplicarNumero se encaixe na tipagem myFunction.
 
 type myFunction = (value: number) => number
 

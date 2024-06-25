@@ -1,7 +1,8 @@
 
 import { Equal, Expect } from "./types/validateTypes";
 
-// Use a função TS Omit em IExtendedWithoutFields para fazer dele uma versão de  IExtendedUser que seja igual a  ISiblingsUser
+// Usou-se a função TS Omit em IExtendedWithoutFields 
+//para fazer dele uma versão de  IExtendedUser que seja igual a  ISiblingsUser
 
 interface IExtendedUser { // Interface não alterada
   siblings: number
@@ -13,7 +14,7 @@ interface ISiblingsUser { // Interface não alterada
   siblings: number
 }
 
-// Mexa aqui : 
+// Interface alterada : 
 interface IExtendedWithoutFields extends Omit<IExtendedUser, 'rating' | 'applications'> {}
 
 
